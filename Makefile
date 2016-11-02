@@ -235,4 +235,4 @@ gh-pages:
 	mv -fv build/html/* ./
 	rm -rf  $(GH_PAGES_SOURCES) build
 	git add -A
-	git ci -m "Generated github pages for `git log develop -1 --pretty=short --abbrev-commit`" && git push origin master ; git checkout develop
+	git commit -m "Generated github pages for `git log develop -1 --pretty=short --abbrev-commit`" && git push origin master ; git checkout develop
