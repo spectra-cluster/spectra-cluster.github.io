@@ -123,12 +123,22 @@ todo_include_todos = False
 # a list of builtin themes.
 #
 html_theme = 'alabaster'
+#html_theme = 'sphinx_rtd_theme'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
 #
-# html_theme_options = {}
+html_theme_options = {
+    'logo': "logo.jpg",
+    'logo_name': True,
+    'github_user': "spectra-cluster",
+    'github_repo': "spectra-cluster-py",
+    'description': "An MS/MS clustering framework",
+    'github_button': True,
+    'github_user': True,
+    'show_powered_by': True
+}
 
 # Add any paths that contain custom themes here, relative to this directory.
 # html_theme_path = []
@@ -136,16 +146,16 @@ html_theme = 'alabaster'
 # The name for this set of Sphinx documents.
 # "<project> v<release> documentation" by default.
 #
-# html_title = 'spectra-cluster toolsuite v1.0.1'
+html_title = 'spectra-cluster toolsuite v1.0.1'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #
-# html_short_title = None
+html_short_title = "An MS/MS clustering framework"
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
 #
-# html_logo = None
+html_logo = "logo.jpg"
 
 # The name of an image file (relative to this directory) to use as a favicon of
 # the docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
