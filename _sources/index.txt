@@ -9,9 +9,9 @@ The spectra-cluster toolsuite provides tools to facilitate the usage of
 spectrum clustering for MS/MS based proteomics data analysis.
 
 It is centered around our spectra-cluster algorithm which is used to build
-the `PRIDE Archive`_ resource (`Griss et al., Nat. Methods 2016`_).
+the `PRIDE Cluster`_ resource (`Griss et al., Nat. Methods 2016`_).
 
-.. _PRIDE Archive: https://www.ebi.ac.uk/pride/cluster
+.. _PRIDE Cluster: https://www.ebi.ac.uk/pride/cluster
 .. _Griss et al., Nat. Methods 2016: http://rdcu.be/i1Sa
 
 Tutorials
