@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>How to cluster MS/MS data &#8212; spectra-cluster toolsuite v1.0.1</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="spectra-cluster toolsuite v1.0.1" href="../index.html" />
+    <link rel="up" title="Tutorials" href="index.html" />
+    <link rel="prev" title="Tutorials" href="index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="how-to-cluster-ms-ms-data">
+<h1>How to cluster MS/MS data<a class="headerlink" href="#how-to-cluster-ms-ms-data" title="Permalink to this headline">¶</a></h1>
+<p>This tutorial explains how to cluster MS/MS data using the
+<a class="reference external" href="https://github.com/spectra-cluster/spectra-cluster-cli">spectra-cluster-cli</a> command line tool.</p>
+<div class="section" id="preparing-your-data">
+<h2>Preparing your data<a class="headerlink" href="#preparing-your-data" title="Permalink to this headline">¶</a></h2>
+<p>The peak list files must be present in the <strong>MGF format</strong>.</p>
+<p>Use <a class="reference external" href="http://proteowizard.sourceforge.net/">ProteoWizard&#8217;s msconvert</a> tool to convert
+your peak list data from other formats. For raw files,
+do not forget to enable the <strong>&#8220;peak picking&#8221;</strong> filter.</p>
+<p>For this tutorial, let&#8217;s assume that your data looks like this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span>\<span class="n">ms_data</span>\
+    <span class="n">sample_1</span><span class="o">.</span><span class="n">mgf</span>
+    <span class="n">sample_2</span><span class="o">.</span><span class="n">mgf</span>
+    <span class="n">sample_3</span><span class="o">.</span><span class="n">mgf</span>
+</pre></div>
+</div>
+<div class="section" id="searching-your-data">
+<h3>Searching your data<a class="headerlink" href="#searching-your-data" title="Permalink to this headline">¶</a></h3>
+<p>Many of the spectra-cluster toolsuite&#8217;s analysis tools work with
+identification data.</p>
+<p>To add identification data, first search the above created MGF files with
+the search engine of your choice (currently supported are MSGF+,
+X!Tandem, MSAmanda, and Scaffold).</p>
+<p><strong>Important:</strong> You must use the above created MGF files as input for your
+search engine. Otherwise the identification data cannot be mapped to the
+spectra correctly.</p>
+<p>If you use <strong>X!Tandem</strong> you must enable the output in the mzIdentML format
+by adding the following option to your XML configuration file:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">note</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;input&quot;</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;output, mzid&quot;</span><span class="o">&gt;</span><span class="n">yes</span><span class="o">&lt;/</span><span class="n">note</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>After this step, your files should be prepared similar to this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span>\<span class="n">ms_data</span>\
+    <span class="n">sample_1</span><span class="o">.</span><span class="n">mgf</span>
+    <span class="n">sample_1</span><span class="o">.</span><span class="n">mzid</span>
+    <span class="n">sample_2</span><span class="o">.</span><span class="n">mgf</span>
+    <span class="n">sample_2</span><span class="o">.</span><span class="n">mzid</span>
+    <span class="n">sample_3</span><span class="o">.</span><span class="n">mgf</span>
+    <span class="n">sample_3</span><span class="o">.</span><span class="n">mzid</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="merging-identification-data">
+<h3>Merging identification data<a class="headerlink" href="#merging-identification-data" title="Permalink to this headline">¶</a></h3>
+<p>For the spectra-cluster pipeline tools to integrate your identification data
+with the clustering results the identification data needs to be merged with
+your MGF files.</p>
+<p>This is done using the <a class="reference external" href="http://spectra-cluster-py.readthedocs.io/en/latest/tools/mgf_search_result_annotator.html">mgf_search_result_annotator</a> tool which you can
+download as part of the <a class="reference external" href="https://github.com/spectra-cluster/spectra-cluster-py/releases">spectra-cluster-py (download link)</a> tools.</p>
+<p>For this example, we assume that you have copied the
+<em>mgf_search_result_annotator.exe</em> into the directory containing your data.</p>
+<p>The <a class="reference external" href="http://spectra-cluster-py.readthedocs.io/en/latest/tools/mgf_search_result_annotator.html">mgf_search_result_annotator</a> tool is a command line tool. To use it,
+you first need to open the command line. On Windows, for example, press the
+[Windows Key] + [r], enter <code class="docutils literal"><span class="pre">cmd</span></code> and press [Enter].</p>
+<p>Next, you have to navigate to the directory containing your search results. In
+our example this would look like this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span>\<span class="n">Documents</span> <span class="ow">and</span> <span class="n">Settings</span>\<span class="n">User</span><span class="o">&gt;</span> <span class="n">cd</span> \
+<span class="n">C</span><span class="p">:</span>\<span class="o">&gt;</span><span class="n">cd</span> <span class="n">ms_data</span>
+<span class="n">C</span><span class="p">:</span>\<span class="n">ms_data</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Now, to combine your search results with your peak list files you have to
+execute the following command (<strong>Note:</strong> you have to adapt the format
+to your search engine. For more information see the
+<a class="reference external" href="http://spectra-cluster-py.readthedocs.io/en/latest/tools/mgf_search_result_annotator.html">mgf_search_result_annotator</a> documentation):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span>\<span class="n">ms_data</span><span class="o">&gt;</span><span class="n">mgf_search_result_annotator</span><span class="o">.</span><span class="n">exe</span> <span class="o">--</span><span class="nb">format</span> <span class="n">MSGF</span><span class="o">+</span> <span class="o">--</span><span class="nb">input</span> <span class="n">sample_1</span><span class="o">.</span><span class="n">mgf</span> <span class="o">--</span><span class="n">search</span> <span class="n">sample_1</span><span class="o">.</span><span class="n">mzid</span> <span class="o">--</span><span class="n">output</span> <span class="n">sample_1_annotated</span><span class="o">.</span><span class="n">mgf</span> <span class="o">--</span><span class="n">fdr</span> <span class="mf">0.01</span> <span class="o">--</span><span class="n">decoy_string</span> <span class="s2">&quot;DECOY&quot;</span>
+</pre></div>
+</div>
+<p>This command has to be launched for every file (simply adapt the input filename, search result filename, and output name).</p>
+</div>
+<div class="section" id="running-the-clustering">
+<h3>Running the clustering<a class="headerlink" href="#running-the-clustering" title="Permalink to this headline">¶</a></h3>
+<p>Running the actual clustering job is most likely the easiest job once the
+MGF files are created.</p>
+<p>For this tutorial, we will use the <a class="reference external" href="https://github.com/spectra-cluster/spectra-cluster-gui">spectra-cluster-gui</a> to run the
+spectra-cluster algorithm.</p>
+<p>You can download the latest release of the <a class="reference external" href="https://github.com/spectra-cluster/spectra-cluster-gui">spectra-cluster-gui</a> <a class="reference external" href="https://github.com/spectra-cluster/spectra-cluster-gui/releases">here</a>. In able to launch
+the <a class="reference external" href="https://github.com/spectra-cluster/spectra-cluster-gui">spectra-cluster-gui</a> you need to have <a class="reference external" href="https://www.java.com">Java</a> installed on your computer.</p>
+<p>Once you have downloaded the <a class="reference external" href="https://github.com/spectra-cluster/spectra-cluster-gui">spectra-cluster-gui</a> tool, simply extract the zip file
+into any folder and double-click the <code class="docutils literal"><span class="pre">spectra-cluster-gui-[VERSION].jar</span></code> file (<strong>Note:</strong>
+[Version] will depend on the current version of the <a class="reference external" href="https://github.com/spectra-cluster/spectra-cluster-gui">spectra-cluster-gui</a> tool).</p>
+<p>After launching the tool, you need to select &#8220;Cluster new dataset&#8221; to cluster your files.</p>
+<img alt="../_images/spectra-cluster-gui_screen1.png" src="../_images/spectra-cluster-gui_screen1.png" />
+<p>Next, simply select the <strong>annotated</strong> MGF files as input files for the clustering.</p>
+<img alt="../_images/spectra-cluster-gui_screen2.png" src="../_images/spectra-cluster-gui_screen2.png" />
+<div class="section" id="clustering-settings">
+<h4>Clustering settings<a class="headerlink" href="#clustering-settings" title="Permalink to this headline">¶</a></h4>
+<p>The default values set in this screen should be working for the vast majority of datasets. The two
+values that <strong>should be adapted</strong> are:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Precursor tolerance: Set this value to the precursor tolerance that you would use for your search</li>
+<li>Fragment tolerance: Again, set this value to the fragment ion tolerance you would use for your search</li>
+</ul>
+</div></blockquote>
+<p><strong>Note</strong>: If you used a labelled approach you also need to select the appropriate reporter ion type for the
+&#8220;Remove reporter ion peaks&#8221; option.</p>
+<img alt="../_images/spectra-cluster-gui_screen3.png" src="../_images/spectra-cluster-gui_screen3.png" />
+</div>
+<div class="section" id="launching-the-clustering">
+<h4>Launching the clustering<a class="headerlink" href="#launching-the-clustering" title="Permalink to this headline">¶</a></h4>
+<p>Simply select where your outputfile should be saved. All other values can generally be left at their default.</p>
+<img alt="../_images/spectra-cluster-gui_screen4.png" src="../_images/spectra-cluster-gui_screen4.png" />
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.jpg" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">How to cluster MS/MS data</a><ul>
+<li><a class="reference internal" href="#preparing-your-data">Preparing your data</a><ul>
+<li><a class="reference internal" href="#searching-your-data">Searching your data</a></li>
+<li><a class="reference internal" href="#merging-identification-data">Merging identification data</a></li>
+<li><a class="reference internal" href="#running-the-clustering">Running the clustering</a><ul>
+<li><a class="reference internal" href="#clustering-settings">Clustering settings</a></li>
+<li><a class="reference internal" href="#launching-the-clustering">Launching the clustering</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Tutorials</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Tutorials</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/tutorials/clustering_basics.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Johannes Griss.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="../_sources/tutorials/clustering_basics.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
