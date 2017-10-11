@@ -30,6 +30,8 @@ execute `pip install https://github.com/spectra-cluster/spectra-cluster-py/zipba
     C:\my_installation_directory\> pip install https://github.com/spectra-cluster/spectra-cluster-py/zipball/master
 
 
+**Note:** On some unix systems the `pip` command for python3 may be called `pip3`. In this case you need to use `pip3` to install the `spectra-cluster-py`_ package.
+
 Manual installation:
 ~~~~~~~~~~~~~~~~~~~~
 
