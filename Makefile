@@ -228,7 +228,7 @@ dummy:
 
 gh-pages:
 	git checkout master
-	rm -rf build _sources _static *.html *.js *.inv _images Tutorials
+	rm -rf build _sources _static *.html *.js *.inv _images _tutorials tutorials
 	git checkout develop $(GH_PAGES_SOURCES)
 	git reset HEAD
 	make html
