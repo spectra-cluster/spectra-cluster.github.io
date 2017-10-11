@@ -109,7 +109,7 @@ into any folder and double-click the ``spectra-cluster-gui-[VERSION].jar`` file 
 
 .. _here: https://github.com/spectra-cluster/spectra-cluster-gui/releases
 .. _mgf_search_result_annotator: http://spectra-cluster-py.readthedocs.io/en/latest/tools/mgf_search_result_annotator.html
-.. _spectra-cluster-py (download link): https://github.com/spectra-cluster/spectra-cluster-py/releases
+.. _spectra-cluster-py (download link): https://github.com/spectra-cluster/spectra-cluster-py/
 
 After launching the tool, you need to select "Cluster new dataset" to cluster your files.
 

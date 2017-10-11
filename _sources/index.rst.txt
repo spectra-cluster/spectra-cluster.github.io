@@ -12,13 +12,15 @@ It is centered around our spectra-cluster algorithm which is used to build
 the `PRIDE Cluster`_ resource (`Griss et al., Nat. Methods 2016`_).
 
 .. _PRIDE Cluster: https://www.ebi.ac.uk/pride/cluster
-.. _Griss et al., Nat. Methods 2016: http://rdcu.be/i1Sa
+.. _Griss et al., Nat. Methods 2016: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4968634/
 
 Tutorials
 =========
 
   * :doc:`/tutorials/clustering_basics`: Exaplanation of how to prepare your
     data for clustering and run the spectra-cluster-gui tool.
+  * :doc:`/tutorials/unidentified_analysis`: Tutorial on how to analyse proteomics
+    data without using identification data.
 
 Clustering MS/MS data
 =====================
@@ -37,7 +39,6 @@ clustering and should produce comparable results.
 .. _spectra-cluster-cli: https://github.com/spectra-cluster/spectra-cluster-cli
 .. _spectra-cluster-hadoop: https://github.com/spectra-cluster/spectra-cluster-hadoop
 .. _spectra-cluster Java API: https://github.com/spectra-cluster/spectra-cluster
-
 
 Analysing clustering results
 ============================
