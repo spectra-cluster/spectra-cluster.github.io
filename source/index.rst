@@ -18,7 +18,7 @@ The simplest way to use the spectra-cluster algorithm is through our newly relea
 
 For a step-by-step instruction have a look at our :doc:`/tutorials/proteome_discoverer`.
 
-.. _Proteome Discoverer Node: http://ms.imp.ac.at/?goto=spectra-cluster).
+.. _Proteome Discoverer Node: http://ms.imp.ac.at/?goto=spectra-cluster
 
 .. hint::
 
