@@ -26,7 +26,7 @@ For this tutorial, let's assume that your data looks like this::
         sample_3.mgf
 
 Searching your data
--------------------
+===================
 
 Many of the spectra-cluster toolsuite's analysis tools work with
 identification data.
@@ -55,7 +55,7 @@ After this step, your files should be prepared similar to this::
         sample_3.mzid
 
 Merging identification data
----------------------------
+===========================
 
 For the spectra-cluster pipeline tools to integrate your identification data
 with the clustering results the identification data needs to be merged with
@@ -88,7 +88,13 @@ to your search engine. For more information see the
 This command has to be launched for every file (simply adapt the input filename, search result filename, and output name).
 
 Running the clustering
-----------------------
+======================
+
+.. warning::
+
+  The spectra-cluster-gui is currently out of date. To get the latest version of the spectra-cluster
+  algorithm, please use the spectra-cluster-cli tool or the 
+  :doc:`Proteome Discoverer node <proteome_discoverer>`.
 
 Running the actual clustering job is most likely the easiest job once the
 MGF files are created.

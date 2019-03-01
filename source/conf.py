@@ -52,7 +52,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'spectra-cluster toolsuite'
-copyright = '2016, Johannes Griss'
+copyright = '2019, Johannes Griss'
 author = 'Johannes Griss'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -132,12 +132,18 @@ html_theme = 'alabaster'
 html_theme_options = {
     'logo': "logo.jpg",
     'logo_name': True,
-    'github_user': "spectra-cluster",
-    'github_repo': "spectra-cluster-py",
     'description': "An MS/MS clustering framework",
-    'github_button': True,
-    'github_user': True,
-    'show_powered_by': True
+    'show_powered_by': True,
+    'fixed_sidebar': True
+}
+
+html_sidebars = {
+    "**": [
+        "about.html",
+        "navigation.html",
+        "relations.html",
+        "searchbox.html",
+    ]
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
@@ -146,7 +152,7 @@ html_theme_options = {
 # The name for this set of Sphinx documents.
 # "<project> v<release> documentation" by default.
 #
-html_title = 'spectra-cluster toolsuite v1.0.1'
+html_title = 'spectra-cluster toolsuite'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #
@@ -155,7 +161,7 @@ html_short_title = "An MS/MS clustering framework"
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
 #
-html_logo = "logo.jpg"
+#html_logo = "_static/logo.jpg"
 
 # The name of an image file (relative to this directory) to use as a favicon of
 # the docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
