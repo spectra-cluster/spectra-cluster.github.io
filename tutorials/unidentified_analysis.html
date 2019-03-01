@@ -1,16 +1,13 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Analysing proteomics samples using spectrum clustering &#8212; spectra-cluster toolsuite v1.0.1</title>
-    
+    <title>Analysing proteomics samples using spectrum clustering &#8212; spectra-cluster toolsuite</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -26,33 +23,127 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Analysing clustering results" href="../analysis_results.html" />
     <link rel="prev" title="How to cluster MS/MS data" href="clustering_basics.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
+  
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">
-  
+  <body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo.jpg" alt="Logo"/>
+    
+    <h1 class="logo logo-name">spectra-cluster toolsuite</h1>
+    
+  </a>
+</p>
 
-    <div class="document">
+
+
+<p class="blurb">An MS/MS clustering framework</p>
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">Clustering tools / software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proteome_discoverer.html">Proteome Discoverer Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering_basics.html">How to cluster MS/MS data</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Analysing proteomics samples using spectrum clustering</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#exporting-data-from-proteome-discoverer-results">Exporting data from Proteome Discoverer results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#processing-clustering-results">Processing .clustering results</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../analysis_results.html">Analysing clustering results</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="clustering_basics.html" title="previous chapter">How to cluster MS/MS data</a></li>
+      <li>Next: <a href="../analysis_results.html" title="next chapter">Analysing clustering results</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
   <div class="section" id="analysing-proteomics-samples-using-spectrum-clustering">
 <h1>Analysing proteomics samples using spectrum clustering<a class="headerlink" href="#analysing-proteomics-samples-using-spectrum-clustering" title="Permalink to this headline">¶</a></h1>
 <p>This tutorial explains how to analyse and characterise samples without
 any identification data but only based on spectrum clustering results.</p>
-<p>As a prerequesite, you need to cluster your MS/MS data. More information
-on how to do this is explained in the <a class="reference internal" href="clustering_basics.html"><span class="doc">How to cluster MS/MS data</span></a> tutorial.</p>
+<p>This is done by clustering your data and then extracting the spectral
+counts per cluster and sample.</p>
+<div class="contents local topic" id="overview">
+<p class="topic-title first">Overview</p>
+<ul class="simple">
+<li><a class="reference internal" href="#exporting-data-from-proteome-discoverer-results" id="id1">Exporting data from Proteome Discoverer results</a></li>
+<li><a class="reference internal" href="#processing-clustering-results" id="id2">Processing .clustering results</a><ul>
+<li><a class="reference internal" href="#installing-the-spectra-cluster-py-toolchain" id="id3">Installing the spectra-cluster-py toolchain</a><ul>
+<li><a class="reference internal" href="#installtion-using-pip" id="id4">Installtion using PIP:</a></li>
+<li><a class="reference internal" href="#manual-installation" id="id5">Manual installation:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#using-clusters-as-features" id="id6">Using clusters as features</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p class="last">As a prerequesite, you need to cluster your MS/MS data. The easiest way
+to do this is to use our new <a class="reference internal" href="proteome_discoverer.html"><span class="doc">Proteome Discoverer</span></a>
+node.</p>
+</div>
+<div class="section" id="exporting-data-from-proteome-discoverer-results">
+<h2>Exporting data from Proteome Discoverer results<a class="headerlink" href="#exporting-data-from-proteome-discoverer-results" title="Permalink to this headline">¶</a></h2>
+<p>To export the spectral counts for first select the spectrum clustering result table
+from your Proteome Discoverer result:</p>
+<img alt="../_images/pd-clustering_result_tab.png" class="align-center" src="../_images/pd-clustering_result_tab.png" />
+<p>Next, simply use Proteome Discoverer’s export function to export the table into
+a text file:</p>
+<img alt="../_images/pd-export_results.png" class="align-center" src="../_images/pd-export_results.png" />
+<p>You can now use the spectral counts of each cluster as features for your samples
+to characterise them using, for example, a principal component analysis.</p>
+</div>
+<div class="section" id="processing-clustering-results">
+<h2>Processing .clustering results<a class="headerlink" href="#processing-clustering-results" title="Permalink to this headline">¶</a></h2>
+<p>In case you clustered your data using any other of our <a class="reference internal" href="../tools.html"><span class="doc">tools</span></a>
+you first need to extract the number of spectra per cluster and input file.</p>
 <div class="section" id="installing-the-spectra-cluster-py-toolchain">
-<h2>Installing the spectra-cluster-py toolchain<a class="headerlink" href="#installing-the-spectra-cluster-py-toolchain" title="Permalink to this headline">¶</a></h2>
+<h3>Installing the spectra-cluster-py toolchain<a class="headerlink" href="#installing-the-spectra-cluster-py-toolchain" title="Permalink to this headline">¶</a></h3>
 <p>As a pre-requisite you need to install <a class="reference external" href="http://www.python.org">python 3</a> from <a class="reference external" href="http://www.python.org">http://www.python.org</a>.</p>
 <div class="section" id="installtion-using-pip">
-<h3>Installtion using PIP:<a class="headerlink" href="#installtion-using-pip" title="Permalink to this headline">¶</a></h3>
-<p>pip is already installed if you&#8217;re using Python 2 &gt;=2.7.9 or Python 3 &gt;=3.4
+<h4>Installtion using PIP:<a class="headerlink" href="#installtion-using-pip" title="Permalink to this headline">¶</a></h4>
+<p>pip is already installed if you’re using Python 2 &gt;=2.7.9 or Python 3 &gt;=3.4
 binaries downloaded from python.org. In case it is not, follow these instructions
 to install it: <a class="reference external" href="https://pip.pypa.io/en/stable/installing/">https://pip.pypa.io/en/stable/installing/</a></p>
 <p>To install the <a class="reference external" href="https://github.com/spectra-cluster/spectra-cluster-py">spectra-cluster-py</a> tools, open a command prompt, navigate
@@ -65,10 +156,10 @@ execute <cite>pip install https://github.com/spectra-cluster/spectra-cluster-py/
 <p><strong>Note:</strong> On some unix systems the <cite>pip</cite> command for python3 may be called <cite>pip3</cite>. In this case you need to use <cite>pip3</cite> to install the <a class="reference external" href="https://github.com/spectra-cluster/spectra-cluster-py">spectra-cluster-py</a> package.</p>
 </div>
 <div class="section" id="manual-installation">
-<h3>Manual installation:<a class="headerlink" href="#manual-installation" title="Permalink to this headline">¶</a></h3>
+<h4>Manual installation:<a class="headerlink" href="#manual-installation" title="Permalink to this headline">¶</a></h4>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Download the <a class="reference external" href="https://github.com/spectra-cluster/spectra-cluster-py">spectra-cluster-py</a> tool from GitHub (click &#8220;Clone or download&#8221; and select &#8220;Download ZIP&#8221;)</li>
+<li>Download the <a class="reference external" href="https://github.com/spectra-cluster/spectra-cluster-py">spectra-cluster-py</a> tool from GitHub (click “Clone or download” and select “Download ZIP”)</li>
 <li>Extract the ZIP file</li>
 <li>Open the command line and navigate to the folder</li>
 <li>Install by running <cite>python setup.py</cite></li>
@@ -78,7 +169,7 @@ execute <cite>pip install https://github.com/spectra-cluster/spectra-cluster-py/
 </div>
 </div>
 <div class="section" id="using-clusters-as-features">
-<h2>Using clusters as features<a class="headerlink" href="#using-clusters-as-features" title="Permalink to this headline">¶</a></h2>
+<h3>Using clusters as features<a class="headerlink" href="#using-clusters-as-features" title="Permalink to this headline">¶</a></h3>
 <p>In this analysis, the analysed samples are characterised by using the clusters as features and the number of spectra
 per sample as quantitative data.</p>
 <p>The <a class="reference external" href="http://spectra-cluster-py.readthedocs.io/en/latest/tools/cluster_features_cli.html">cluster_features_cli</a> tools retrieves the number of spectra per cluster and sample (currently, per MGF file):</p>
@@ -108,65 +199,21 @@ per sample as quantitative data.</p>
 </div>
 </div>
 </div>
+</div>
 
 
           </div>
+          
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-            <p class="logo"><a href="../index.html">
-              <img class="logo" src="../_static/logo.jpg" alt="Logo"/>
-            </a></p>
-  <h3><a href="../index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Analysing proteomics samples using spectrum clustering</a><ul>
-<li><a class="reference internal" href="#installing-the-spectra-cluster-py-toolchain">Installing the spectra-cluster-py toolchain</a><ul>
-<li><a class="reference internal" href="#installtion-using-pip">Installtion using PIP:</a></li>
-<li><a class="reference internal" href="#manual-installation">Manual installation:</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#using-clusters-as-features">Using clusters as features</a></li>
-</ul>
-</li>
-</ul>
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="../index.html">Documentation overview</a><ul>
-  <li><a href="index.html">Tutorials</a><ul>
-      <li>Previous: <a href="clustering_basics.html" title="previous chapter">How to cluster MS/MS data</a></li>
-  </ul></li>
-  </ul></li>
-</ul>
-</div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/tutorials/unidentified_analysis.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
+    <div class="clearer"></div>
+  </div>
     <div class="footer">
-      &copy;2016, Johannes Griss.
+      &copy;2019, Johannes Griss.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.7</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
       <a href="../_sources/tutorials/unidentified_analysis.rst.txt"

@@ -1,16 +1,13 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>How to cluster MS/MS data &#8212; spectra-cluster toolsuite v1.0.1</title>
-    
+    <title>How to cluster MS/MS data &#8212; spectra-cluster toolsuite</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -27,19 +24,78 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Analysing proteomics samples using spectrum clustering" href="unidentified_analysis.html" />
-    <link rel="prev" title="Tutorials" href="index.html" />
+    <link rel="prev" title="Proteome Discoverer Tutorial" href="proteome_discoverer.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">
-  
+  <body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo.jpg" alt="Logo"/>
+    
+    <h1 class="logo logo-name">spectra-cluster toolsuite</h1>
+    
+  </a>
+</p>
 
-    <div class="document">
+
+
+<p class="blurb">An MS/MS clustering framework</p>
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">Clustering tools / software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proteome_discoverer.html">Proteome Discoverer Tutorial</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How to cluster MS/MS data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#preparing-your-data">Preparing your data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#searching-your-data">Searching your data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#merging-identification-data">Merging identification data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-the-clustering">Running the clustering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="unidentified_analysis.html">Analysing proteomics samples using spectrum clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analysis_results.html">Analysing clustering results</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="proteome_discoverer.html" title="previous chapter">Proteome Discoverer Tutorial</a></li>
+      <li>Next: <a href="unidentified_analysis.html" title="next chapter">Analysing proteomics samples using spectrum clustering</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
   <div class="section" id="how-to-cluster-ms-ms-data">
@@ -49,19 +105,20 @@
 <div class="section" id="preparing-your-data">
 <h2>Preparing your data<a class="headerlink" href="#preparing-your-data" title="Permalink to this headline">¶</a></h2>
 <p>The peak list files must be present in the <strong>MGF format</strong>.</p>
-<p>Use <a class="reference external" href="http://proteowizard.sourceforge.net/">ProteoWizard&#8217;s msconvert</a> tool to convert
+<p>Use <a class="reference external" href="http://proteowizard.sourceforge.net/">ProteoWizard’s msconvert</a> tool to convert
 your peak list data from other formats. For raw files,
-do not forget to enable the <strong>&#8220;peak picking&#8221;</strong> filter.</p>
-<p>For this tutorial, let&#8217;s assume that your data looks like this:</p>
+do not forget to enable the <strong>“peak picking”</strong> filter.</p>
+<p>For this tutorial, let’s assume that your data looks like this:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span>\<span class="n">ms_data</span>\
     <span class="n">sample_1</span><span class="o">.</span><span class="n">mgf</span>
     <span class="n">sample_2</span><span class="o">.</span><span class="n">mgf</span>
     <span class="n">sample_3</span><span class="o">.</span><span class="n">mgf</span>
 </pre></div>
 </div>
+</div>
 <div class="section" id="searching-your-data">
-<h3>Searching your data<a class="headerlink" href="#searching-your-data" title="Permalink to this headline">¶</a></h3>
-<p>Many of the spectra-cluster toolsuite&#8217;s analysis tools work with
+<h2>Searching your data<a class="headerlink" href="#searching-your-data" title="Permalink to this headline">¶</a></h2>
+<p>Many of the spectra-cluster toolsuite’s analysis tools work with
 identification data.</p>
 <p>To add identification data, first search the above created MGF files with
 the search engine of your choice (currently supported are MSGF+,
@@ -86,7 +143,7 @@ by adding the following option to your XML configuration file:</p>
 </div>
 </div>
 <div class="section" id="merging-identification-data">
-<h3>Merging identification data<a class="headerlink" href="#merging-identification-data" title="Permalink to this headline">¶</a></h3>
+<h2>Merging identification data<a class="headerlink" href="#merging-identification-data" title="Permalink to this headline">¶</a></h2>
 <p>For the spectra-cluster pipeline tools to integrate your identification data
 with the clustering results the identification data needs to be merged with
 your MGF files.</p>
@@ -114,7 +171,13 @@ to your search engine. For more information see the
 <p>This command has to be launched for every file (simply adapt the input filename, search result filename, and output name).</p>
 </div>
 <div class="section" id="running-the-clustering">
-<h3>Running the clustering<a class="headerlink" href="#running-the-clustering" title="Permalink to this headline">¶</a></h3>
+<h2>Running the clustering<a class="headerlink" href="#running-the-clustering" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The spectra-cluster-gui is currently out of date. To get the latest version of the spectra-cluster
+algorithm, please use the spectra-cluster-cli tool or the
+<a class="reference internal" href="proteome_discoverer.html"><span class="doc">Proteome Discoverer node</span></a>.</p>
+</div>
 <p>Running the actual clustering job is most likely the easiest job once the
 MGF files are created.</p>
 <p>For this tutorial, we will use the <a class="reference external" href="https://github.com/spectra-cluster/spectra-cluster-gui">spectra-cluster-gui</a> to run the
@@ -124,12 +187,12 @@ the <a class="reference external" href="https://github.com/spectra-cluster/spect
 <p>Once you have downloaded the <a class="reference external" href="https://github.com/spectra-cluster/spectra-cluster-gui">spectra-cluster-gui</a> tool, simply extract the zip file
 into any folder and double-click the <code class="docutils literal"><span class="pre">spectra-cluster-gui-[VERSION].jar</span></code> file (<strong>Note:</strong>
 [Version] will depend on the current version of the <a class="reference external" href="https://github.com/spectra-cluster/spectra-cluster-gui">spectra-cluster-gui</a> tool).</p>
-<p>After launching the tool, you need to select &#8220;Cluster new dataset&#8221; to cluster your files.</p>
+<p>After launching the tool, you need to select “Cluster new dataset” to cluster your files.</p>
 <img alt="../_images/spectra-cluster-gui_screen1.png" src="../_images/spectra-cluster-gui_screen1.png" />
 <p>Next, simply select the <strong>annotated</strong> MGF files as input files for the clustering.</p>
 <img alt="../_images/spectra-cluster-gui_screen2.png" src="../_images/spectra-cluster-gui_screen2.png" />
 <div class="section" id="clustering-settings">
-<h4>Clustering settings<a class="headerlink" href="#clustering-settings" title="Permalink to this headline">¶</a></h4>
+<h3>Clustering settings<a class="headerlink" href="#clustering-settings" title="Permalink to this headline">¶</a></h3>
 <p>The default values set in this screen should be working for the vast majority of datasets. The two
 values that <strong>should be adapted</strong> are:</p>
 <blockquote>
@@ -139,81 +202,30 @@ values that <strong>should be adapted</strong> are:</p>
 </ul>
 </div></blockquote>
 <p><strong>Note</strong>: If you used a labelled approach you also need to select the appropriate reporter ion type for the
-&#8220;Remove reporter ion peaks&#8221; option.</p>
+“Remove reporter ion peaks” option.</p>
 <img alt="../_images/spectra-cluster-gui_screen3.png" src="../_images/spectra-cluster-gui_screen3.png" />
 </div>
 <div class="section" id="launching-the-clustering">
-<h4>Launching the clustering<a class="headerlink" href="#launching-the-clustering" title="Permalink to this headline">¶</a></h4>
+<h3>Launching the clustering<a class="headerlink" href="#launching-the-clustering" title="Permalink to this headline">¶</a></h3>
 <p>Simply select where your outputfile should be saved. All other values can generally be left at their default.</p>
 <img alt="../_images/spectra-cluster-gui_screen4.png" src="../_images/spectra-cluster-gui_screen4.png" />
-</div>
 </div>
 </div>
 </div>
 
 
           </div>
+          
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-            <p class="logo"><a href="../index.html">
-              <img class="logo" src="../_static/logo.jpg" alt="Logo"/>
-            </a></p>
-  <h3><a href="../index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">How to cluster MS/MS data</a><ul>
-<li><a class="reference internal" href="#preparing-your-data">Preparing your data</a><ul>
-<li><a class="reference internal" href="#searching-your-data">Searching your data</a></li>
-<li><a class="reference internal" href="#merging-identification-data">Merging identification data</a></li>
-<li><a class="reference internal" href="#running-the-clustering">Running the clustering</a><ul>
-<li><a class="reference internal" href="#clustering-settings">Clustering settings</a></li>
-<li><a class="reference internal" href="#launching-the-clustering">Launching the clustering</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="../index.html">Documentation overview</a><ul>
-  <li><a href="index.html">Tutorials</a><ul>
-      <li>Previous: <a href="index.html" title="previous chapter">Tutorials</a></li>
-      <li>Next: <a href="unidentified_analysis.html" title="next chapter">Analysing proteomics samples using spectrum clustering</a></li>
-  </ul></li>
-  </ul></li>
-</ul>
-</div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/tutorials/clustering_basics.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
+    <div class="clearer"></div>
+  </div>
     <div class="footer">
-      &copy;2016, Johannes Griss.
+      &copy;2019, Johannes Griss.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.7</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
       <a href="../_sources/tutorials/clustering_basics.rst.txt"

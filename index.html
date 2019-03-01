@@ -1,16 +1,13 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>The spectra-cluster toolsuite &#8212; spectra-cluster toolsuite v1.0.1</title>
-    
+    <title>Welcome &#8212; spectra-cluster toolsuite</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
@@ -26,125 +23,55 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Tutorials" href="tutorials/index.html" />
+    <link rel="next" title="Clustering tools / software" href="tools.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">
-  
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
-  <div class="section" id="the-spectra-cluster-toolsuite">
-<h1>The spectra-cluster toolsuite<a class="headerlink" href="#the-spectra-cluster-toolsuite" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="welcome">
-<h2>Welcome<a class="headerlink" href="#welcome" title="Permalink to this headline">¶</a></h2>
-<p>The spectra-cluster toolsuite provides tools to facilitate the usage of
-spectrum clustering for MS/MS based proteomics data analysis.</p>
-<p>It is centered around our spectra-cluster algorithm which is used to build
-the <a class="reference external" href="https://www.ebi.ac.uk/pride/cluster">PRIDE Cluster</a> resource (<a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4968634/">Griss et al., Nat. Methods 2016</a>).</p>
-</div>
-<div class="section" id="tutorials">
-<h2>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><ul class="simple">
-<li><a class="reference internal" href="tutorials/clustering_basics.html"><span class="doc">How to cluster MS/MS data</span></a>: Exaplanation of how to prepare your
-data for clustering and run the spectra-cluster-gui tool.</li>
-<li><a class="reference internal" href="tutorials/unidentified_analysis.html"><span class="doc">Analysing proteomics samples using spectrum clustering</span></a>: Tutorial on how to analyse proteomics
-data without using identification data.</li>
-</ul>
-</div></blockquote>
-</div>
-<div class="section" id="clustering-ms-ms-data">
-<h2>Clustering MS/MS data<a class="headerlink" href="#clustering-ms-ms-data" title="Permalink to this headline">¶</a></h2>
-<p>The spectra-cluster toolsuite currently contains three tools to cluster
-MS/MS based proteomics data:</p>
-<blockquote>
-<div><ul class="simple">
-<li><a class="reference external" href="https://github.com/spectra-cluster/spectra-cluster-gui">spectra-cluster-gui</a>: Graphical user interface</li>
-<li><a class="reference external" href="https://github.com/spectra-cluster/spectra-cluster-cli">spectra-cluster-cli</a>: Command line version</li>
-<li><a class="reference external" href="https://github.com/spectra-cluster/spectra-cluster-hadoop">spectra-cluster-hadoop</a>: Hadoop version</li>
-</ul>
-</div></blockquote>
-<p>All of these tools use the <a class="reference external" href="https://github.com/spectra-cluster/spectra-cluster">spectra-cluster Java API</a> to perform the actual
-clustering and should produce comparable results.</p>
-</div>
-<div class="section" id="analysing-clustering-results">
-<h2>Analysing clustering results<a class="headerlink" href="#analysing-clustering-results" title="Permalink to this headline">¶</a></h2>
-<p>The spectra-cluster toolsuite uses the <strong>.clustering</strong> file format
-to store MS/MS clustering results.</p>
-<p>The spectra-cluster toolsuite contains a collection of tools that are able
-to process this format:</p>
-<p>The <a class="reference external" href="https://github.com/spectra-cluster/clustering-file-converter">clustering-file-converter</a> can extract consensus spectra in a variety for formats.
-Most importantly it also supports the MSP format and can thereby be used to create
-spectral libraries from clustering results.</p>
-<p>The <a class="reference external" href="https://github.com/spectra-cluster/spectra-cluster-py">spectra-cluster-py</a> project contains a collection of tools to analyse clustering
-results. A detailed descritption of all the available tools can be found at
-<a class="reference external" href="https://spectra-cluster-py.readthedocs.io">https://spectra-cluster-py.readthedocs.io</a></p>
-</div>
-<div class="section" id="developing-own-tools">
-<h2>Developing own tools<a class="headerlink" href="#developing-own-tools" title="Permalink to this headline">¶</a></h2>
-<p>The spectra-cluster toolsuite provides several ready-to-use APIs that support the
-development of MS/MS clustering algorithms as well as own analaysis tools.</p>
-<blockquote>
-<div><ul class="simple">
-<li><a class="reference external" href="https://github.com/spectra-cluster/clustering-file-reader">clustering-file-reader</a>: Java API to read the .clustering format</li>
-<li><a class="reference external" href="https://github.com/spectra-cluster/spectra-cluster-py">spectra-cluster-py</a>: Tools to analyse .clustering files as well as
-a Python API to process .clustering files</li>
-</ul>
-</div></blockquote>
-<p>The <a class="reference external" href="https://github.com/spectra-cluster/spectra-cluster">spectra-cluster Java API</a> contains the core clustering functionality used by the
-implementations of the spectra-cluster algorithm. To test the effect of a, for example,
-different spectrum similarity method it is only necessary to implement a single interface.
-This new code will then be fully compatible with all existing tools (for example the
-<a class="reference external" href="https://github.com/spectra-cluster/spectra-cluster-cli">spectra-cluster-cli</a> command-line interface) which allows the user to immediately test the
-new implementation.</p>
-<div class="toctree-wrapper compound">
-</div>
-</div>
-</div>
-
-
-          </div>
-        </div>
-      </div>
+  <body>
+  <div class="document">
+    
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-            <p class="logo"><a href="#">
-              <img class="logo" src="_static/logo.jpg" alt="Logo"/>
-            </a></p>
-  <h3><a href="#">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">The spectra-cluster toolsuite</a><ul>
-<li><a class="reference internal" href="#welcome">Welcome</a></li>
-<li><a class="reference internal" href="#tutorials">Tutorials</a></li>
-<li><a class="reference internal" href="#clustering-ms-ms-data">Clustering MS/MS data</a></li>
-<li><a class="reference internal" href="#analysing-clustering-results">Analysing clustering results</a></li>
-<li><a class="reference internal" href="#developing-own-tools">Developing own tools</a></li>
+<p class="logo">
+  <a href="#">
+    <img class="logo" src="_static/logo.jpg" alt="Logo"/>
+    
+    <h1 class="logo logo-name">spectra-cluster toolsuite</h1>
+    
+  </a>
+</p>
+
+
+
+<p class="blurb">An MS/MS clustering framework</p>
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Clustering tools / software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/proteome_discoverer.html">Proteome Discoverer Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/clustering_basics.html">How to cluster MS/MS data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/unidentified_analysis.html">Analysing proteomics samples using spectrum clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysis_results.html">Analysing clustering results</a></li>
 </ul>
-</li>
-</ul>
+
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="#">Documentation overview</a><ul>
-      <li>Next: <a href="tutorials/index.html" title="next chapter">Tutorials</a></li>
+      <li>Next: <a href="tools.html" title="next chapter">Clustering tools / software</a></li>
   </ul></li>
 </ul>
 </div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/index.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
@@ -157,14 +84,76 @@ new implementation.</p>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome">
+<h1>Welcome<a class="headerlink" href="#welcome" title="Permalink to this headline">¶</a></h1>
+<p>The spectra-cluster toolsuite provides tools to facilitate the usage of
+spectrum clustering for MS/MS based proteomics data analysis.</p>
+<p>It is centered around our spectra-cluster algorithm which is used to build
+the <a class="reference external" href="https://www.ebi.ac.uk/pride/cluster">PRIDE Cluster</a> resource (<a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4968634/">Griss et al., Nat. Methods 2016</a>) and can process up to 100+ million MS/MS spectra.</p>
+<div class="section" id="getting-started">
+<h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>The simplest way to use the spectra-cluster algorithm is through our newly released <a class="reference external" href="http://ms.imp.ac.at/?goto=spectra-cluster).">Proteome Discoverer Node</a>.</p>
+<p>For a step-by-step instruction have a look at our <a class="reference internal" href="tutorials/proteome_discoverer.html"><span class="doc">Proteome Discoverer Tutorial</span></a>.</p>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p class="last">To get help simply post a question at <a class="reference external" href="http://qa.proteomics-academy.org">http://qa.proteomics-academy.org</a></p>
+</div>
+</div>
+<div class="section" id="content">
+<h2>Content<a class="headerlink" href="#content" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Clustering tools / software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#developing-own-algorithms">Developing own algorithms</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/proteome_discoverer.html">Proteome Discoverer Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/proteome_discoverer.html#free-version-of-proteome-discoverer">Free version of Proteome Discoverer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/proteome_discoverer.html#installing-free-nodes">Installing free nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/proteome_discoverer.html#installing-the-spectra-cluster-node">Installing the spectra-cluster node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/proteome_discoverer.html#using-the-spectra-cluster-node">Using the spectra-cluster node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/proteome_discoverer.html#clustering-settings">Clustering settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/proteome_discoverer.html#clustering-results">Clustering results</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/clustering_basics.html">How to cluster MS/MS data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/clustering_basics.html#preparing-your-data">Preparing your data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/clustering_basics.html#searching-your-data">Searching your data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/clustering_basics.html#merging-identification-data">Merging identification data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/clustering_basics.html#running-the-clustering">Running the clustering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/unidentified_analysis.html">Analysing proteomics samples using spectrum clustering</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/unidentified_analysis.html#exporting-data-from-proteome-discoverer-results">Exporting data from Proteome Discoverer results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/unidentified_analysis.html#processing-clustering-results">Processing .clustering results</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="analysis_results.html">Analysing clustering results</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
     <div class="footer">
-      &copy;2016, Johannes Griss.
+      &copy;2019, Johannes Griss.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.7</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
       <a href="_sources/index.rst.txt"

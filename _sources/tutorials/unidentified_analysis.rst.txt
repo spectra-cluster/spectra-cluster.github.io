@@ -5,11 +5,44 @@ Analysing proteomics samples using spectrum clustering
 This tutorial explains how to analyse and characterise samples without 
 any identification data but only based on spectrum clustering results.
 
-As a prerequesite, you need to cluster your MS/MS data. More information
-on how to do this is explained in the :doc:`clustering_basics` tutorial.
+This is done by clustering your data and then extracting the spectral
+counts per cluster and sample.
+
+.. contents:: Overview
+   :backlinks: none
+   :local:
+
+.. hint::
+  As a prerequesite, you need to cluster your MS/MS data. The easiest way
+  to do this is to use our new :doc:`Proteome Discoverer <proteome_discoverer>`
+  node.
+
+Exporting data from Proteome Discoverer results
+===============================================
+
+To export the spectral counts for first select the spectrum clustering result table
+from your Proteome Discoverer result:
+
+.. image:: ../_static/pd-clustering_result_tab.png
+   :align: center
+
+Next, simply use Proteome Discoverer's export function to export the table into
+a text file:
+
+.. image:: ../_static/pd-export_results.png
+   :align: center
+
+You can now use the spectral counts of each cluster as features for your samples
+to characterise them using, for example, a principal component analysis.
+
+Processing .clustering results
+==============================
+
+In case you clustered your data using any other of our :doc:`tools <../tools>`
+you first need to extract the number of spectra per cluster and input file.
 
 Installing the spectra-cluster-py toolchain
-===========================================
+-------------------------------------------
 
 As a pre-requisite you need to install `python 3`_ from http://www.python.org.
 
@@ -45,7 +78,7 @@ Manual installation:
 All subsequent tools refer to tools from the `spectra-cluster-py`_ tools.
 
 Using clusters as features
-==========================
+--------------------------
 
 In this analysis, the analysed samples are characterised by using the clusters as features and the number of spectra
 per sample as quantitative data.

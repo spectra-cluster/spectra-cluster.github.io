@@ -1,0 +1,330 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Proteome Discoverer Tutorial &#8212; spectra-cluster toolsuite</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="How to cluster MS/MS data" href="clustering_basics.html" />
+    <link rel="prev" title="Clustering tools / software" href="../tools.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo.jpg" alt="Logo"/>
+    
+    <h1 class="logo logo-name">spectra-cluster toolsuite</h1>
+    
+  </a>
+</p>
+
+
+
+<p class="blurb">An MS/MS clustering framework</p>
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">Clustering tools / software</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Proteome Discoverer Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#free-version-of-proteome-discoverer">Free version of Proteome Discoverer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-free-nodes">Installing free nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-the-spectra-cluster-node">Installing the spectra-cluster node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-the-spectra-cluster-node">Using the spectra-cluster node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#clustering-settings">Clustering settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#clustering-results">Clustering results</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="clustering_basics.html">How to cluster MS/MS data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unidentified_analysis.html">Analysing proteomics samples using spectrum clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analysis_results.html">Analysing clustering results</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../tools.html" title="previous chapter">Clustering tools / software</a></li>
+      <li>Next: <a href="clustering_basics.html" title="next chapter">How to cluster MS/MS data</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="proteome-discoverer-tutorial">
+<h1>Proteome Discoverer Tutorial<a class="headerlink" href="#proteome-discoverer-tutorial" title="Permalink to this headline">¶</a></h1>
+<p>The spectra-cluster <a class="reference external" href="http://ms.imp.ac.at/?goto=spectra-cluster.">Proteome Discoverer Node</a> integrates our spectra-cluster algorithm into Proteome Discoverer version 2.1. Its current main use case is to improve the quantitation of low-abundant proteins using label-free quantitation.</p>
+<div class="contents local topic" id="overview">
+<p class="topic-title first">Overview</p>
+<ul class="simple">
+<li><a class="reference internal" href="#free-version-of-proteome-discoverer" id="id1">Free version of Proteome Discoverer</a></li>
+<li><a class="reference internal" href="#installing-free-nodes" id="id2">Installing free nodes</a></li>
+<li><a class="reference internal" href="#installing-the-spectra-cluster-node" id="id3">Installing the spectra-cluster node</a></li>
+<li><a class="reference internal" href="#using-the-spectra-cluster-node" id="id4">Using the spectra-cluster node</a></li>
+<li><a class="reference internal" href="#clustering-settings" id="id5">Clustering settings</a></li>
+<li><a class="reference internal" href="#clustering-results" id="id6">Clustering results</a></li>
+</ul>
+</div>
+<div class="section" id="free-version-of-proteome-discoverer">
+<h2>Free version of Proteome Discoverer<a class="headerlink" href="#free-version-of-proteome-discoverer" title="Permalink to this headline">¶</a></h2>
+<p>Thermo provides a free version of Proteome Discoverer through its demo versions. The demo versions remain fully functional indefinitely. Only Thermo’s commercial nodes are limited to 30 days. After this time, all freely available nodes remain fully functional.</p>
+<p>You can download the demo version of Proteome Discoverer 2.1 from <a class="reference external" href="https://thermo.flexnetoperations.com">https://thermo.flexnetoperations.com</a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The spectra-cluster node currently fully supports Proteome Discoverer version 2.0 and 2.1.
+The node is also functional under version 2.3 but the clustering result table still lacks some
+columns.</p>
+</div>
+<p>After registering and signing in:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Select <cite>Product List</cite> (on the left)</li>
+<li>Select <cite>Demo</cite> from the subsequent list (bottom middle)</li>
+<li>Find <cite>Proteome Discoverer 2.1 SP1</cite> in this list</li>
+<li>For most cases, the <cite>Proteome Discoverer 2.1 SP1 - Installer Only</cite> is the right file to download and install.</li>
+<li>The licence key for the demo version is <cite>J3H0-D5BN-P8TB-4RJX</cite> (taken from <a class="reference external" href="https://portal.thermo-brims.com/index.php/component/thermosoftwares/thermosoftware/127">https://portal.thermo-brims.com/index.php/component/thermosoftwares/thermosoftware/127</a>).</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="installing-free-nodes">
+<h2>Installing free nodes<a class="headerlink" href="#installing-free-nodes" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="http://cores.imp.ac.at/protein-chemistry/">Protein Chemistry Facility</a> at the IMP publishes a wide variety of free Proteome Discoverer nodes. The whole collection can be found at <a class="reference external" href="http://www.pd-nodes.org">http://www.pd-nodes.org</a>.</p>
+<p>To replicate our setup, install <a class="reference external" href="http://ms.imp.ac.at/index.php?action=ms-amanda">MS Amanda 2.0</a> and <a class="reference external" href="http://ms.imp.ac.at/index.php?action=apQuant">apQuant</a> from this list. This includes the free search engine MS Amanda and apQuant for label-free quantitation into you Proteome Discoverer installation.</p>
+</div>
+<div class="section" id="installing-the-spectra-cluster-node">
+<h2>Installing the spectra-cluster node<a class="headerlink" href="#installing-the-spectra-cluster-node" title="Permalink to this headline">¶</a></h2>
+<p>Similar to other Proteome Discoverer by the <a class="reference external" href="http://cores.imp.ac.at/protein-chemistry/">Protein Chemistry Facility</a>, simply download the spectra-cluster node from <a class="reference external" href="http://ms.imp.ac.at/?goto=spectra-cluster">http://ms.imp.ac.at/?goto=spectra-cluster</a>. After running the setup tool, you will find the spectra-cluster node in your Proteome Discoverer interface:</p>
+<img alt="../_images/pd-node_1.png" class="align-center" src="../_images/pd-node_1.png" />
+<p>Additionally, you will find a second node to infer additional PSMs based on the clustering results (see below):</p>
+<img alt="../_images/pd-node_2.png" class="align-center" src="../_images/pd-node_2.png" />
+</div>
+<div class="section" id="using-the-spectra-cluster-node">
+<h2>Using the spectra-cluster node<a class="headerlink" href="#using-the-spectra-cluster-node" title="Permalink to this headline">¶</a></h2>
+<p>In our label-free quantitation pipeline we use spectrum clustering to infer additional peptide identifications from the clustering results.</p>
+<img alt="../_images/pd-workflow.png" class="align-center" src="../_images/pd-workflow.png" />
+<p>The workflow is built in the following way:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Select MS2 spectra (<cite>Spectrum Selector</cite>)</li>
+<li>Perform the search (<cite>MS Amanda</cite>)</li>
+<li>Filter the search results based on the set FDR (<cite>Percolator</cite>)</li>
+<li>Perform the clustering (<cite>Spectral Clustering</cite>)</li>
+<li>Infer additional identifications (PSMs) from the clustering results (<cite>Spectral Cluster Search</cite>)</li>
+<li>Mark these additional identifications as verified (<cite>Fixed Value PSM Validator</cite>) - this is required by other Proteome Discoverer nodes</li>
+<li>Perform the label-free quantitation (<cite>IMP-apQuant</cite>)</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="clustering-settings">
+<h2>Clustering settings<a class="headerlink" href="#clustering-settings" title="Permalink to this headline">¶</a></h2>
+<p>The spectra-cluster node offers several settings to control its behaviour (showing advanced parameters as well):</p>
+<img alt="../_images/pd_parameters.png" class="align-center" src="../_images/pd_parameters.png" />
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p>The only options that should always be adjusted (or at least looked at) are</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="#precursor-tolerance"><span class="std std-ref">Precursor tolerance</span></a></li>
+<li><a class="reference internal" href="#fragment-tolerance"><span class="std std-ref">Fragment tolerance</span></a></li>
+<li><a class="reference internal" href="#final-precision"><span class="std std-ref">Final precision</span></a></li>
+</ul>
+</div></blockquote>
+<p>All other parameters can be left at their default value for the vast majority of datasets.</p>
+<p class="last">All paramteres in <strong>bold</strong> are non-advanced and always visible.</p>
+</div>
+<p id="precursor-tolerance"><strong>Precursor tolerance</strong></p>
+<blockquote>
+<div>Defines the precursor tolerance to use for clustering. Generally, this matches the search engine
+settings. Nevertheless, we have observed that using large tolerances does not decrease clustering
+performance.</div></blockquote>
+<p id="fragment-tolerance"><strong>Fragment tolerance</strong></p>
+<blockquote>
+<div>The fragment ion tolerance (always defined in Da) should also be set to match the search engine
+settings / the instrument resolution. Setting this as low as possible has the most important
+effect on clustering accuracy.</div></blockquote>
+<p>Remove reporter ion</p>
+<blockquote>
+<div>If you process isobarically labelled spectra, the respective reporter ions should be removed by
+selecting the respective value from the list. This greatly improves clustering accuracy for these
+experiments.</div></blockquote>
+<p>Filters</p>
+<blockquote>
+<div>The <cite>mz_150</cite> and <cite>mz_200</cite> filter remove all peaks below 150 <em>m/z</em> / 200 <em>m/z</em> respectively from
+the spectra prior to clustering. This is generally a good idea since these peaks do not contain
+any fragment information. The default setting of <cite>mz_150</cite> should be appropriate for nearly all
+settings.</div></blockquote>
+<p>Add score</p>
+<blockquote>
+<div>If selected, additional scores are added to the <cite>.clustering</cite> result file. This is a very
+slow process and should only be used if the scores are required in a subsequent analysis
+step. Generally, they will not be needed.</div></blockquote>
+<p>Fast mode</p>
+<blockquote>
+<div>This mode pre-processes the spectra prior to clustering to improve the speed of the similariy
+assessment. As a down-side it also decreases clustering accuracy. For the vast majority of
+datasets, this mode is not needed.</div></blockquote>
+<p><strong>Starting precision</strong></p>
+<blockquote>
+<div><p>The spectra-cluster algorithm performs clustering in several rounds (see below). In each round, a
+lower target precision is being used. The precision is defined as the average cluster purity or
+rather the inverse of the proportion of incorrectly clustered spectra. A precision of <cite>1</cite> therefore
+means that only perfectly matching spectra are clustered. A precision of <cite>0.99</cite> means that 1% of
+the processed spectra are expected to be incorrectly clustered.</p>
+<p>In all our benchmarks, a starting precision of <cite>1</cite> (default value) gave the best results. This
+setting should therefore generally not be changed.</p>
+</div></blockquote>
+<p id="final-precision"><strong>Final precision</strong></p>
+<blockquote>
+<div>The final precision defines the inverse of the expected number of incorrectly clustered spectra.
+This is the <strong>main parameter to control clustering accuracy</strong>. A value of <cite>0.99</cite> will result in
+1% of incorrectly clustered spectra. Very high accuracies will lead to a higher degree of cluster
+fragmentation. This means, that spectra that represent the same peptide will be split accross
+several clusters instead of being grouped in a single one.</div></blockquote>
+<p>Number of clustering rounds</p>
+<blockquote>
+<div>The number of clustering rounds to perform. In all our benchmarks, increasing the number of
+rounds over 5 did not increase clustering performance. Therefore, this setting generally
+does not have to be adapted.</div></blockquote>
+<p>Minimum number of comparisons</p>
+<blockquote>
+<div><em>Deprecated</em> This option should generally no longer be used. Since the spectra-cluster algorithm
+was originally designed to process repository-sized datasets, a correction factor was necessary
+to adapt the statistics for small datasets (less than 1,000 MS runs). In the current version
+this factor is automatically derived from the dataset.</div></blockquote>
+<p>Estimate minimum number of comparisons</p>
+<blockquote>
+<div>This feature automatically determines the correction factor (see above) required for clustering
+smaller datasets from the data itself. This feature should only be disabled for comparisons with
+legacy data. For any other purpose, this feature should always be enabled. If enabled, the
+<cite>Minimum number of comparisons</cite> setting is ignored.</div></blockquote>
+<p>Comparison correction factor</p>
+<blockquote>
+<div>If the <cite>Estimate minimum number of comparisons</cite> feature is enabled, a minimum correction factor can
+be set. Generally, this is not needed. In some very small datasets (1,000 - 10,000 spectra) a factor
+of <cite>1,000</cite> can improve clustering accuracy. In our own benchmarks, we never had to use this feature.</div></blockquote>
+<p>Minimum number of consensus peaks</p>
+<blockquote>
+<div>During the clustering process, the created consensus spectra are filtered. In some cases, this
+filtering can lead to very scarce spectra. Therefore, a minimum number of peaks should always be
+set. We recommend this to be set at 50 peaks.</div></blockquote>
+<p>Max memory</p>
+<blockquote>
+<div>The maximum memory available to the clustering process (in MB). To improve performance, this
+value should be set as high as possible. A larger number of threads (see below) will also
+require more memory.</div></blockquote>
+<p>Number of threads</p>
+<blockquote>
+<div>The number of parallel clustering threads used to process the dataset. Larger numbers (if supported
+by the hardward) improve performance.</div></blockquote>
+</div>
+<div class="section" id="clustering-results">
+<h2>Clustering results<a class="headerlink" href="#clustering-results" title="Permalink to this headline">¶</a></h2>
+<p>When using the spectra-cluster <a class="reference external" href="http://ms.imp.ac.at/?goto=spectra-cluster.">Proteome Discoverer node</a> a new table is added to the results:</p>
+<img alt="../_images/pd-clustering_result_tab.png" class="align-center" src="../_images/pd-clustering_result_tab.png" />
+<p>The clustering table presents a concise overview of the clustering results:</p>
+<img alt="../_images/pd-result_table_content.png" class="align-center" src="../_images/pd-result_table_content.png" />
+<p>The main information is:</p>
+<p><strong>Avg. Precursor m/z</strong></p>
+<blockquote>
+<div>The average precursor <em>m/z</em> of the cluster’s spectra</div></blockquote>
+<p><strong># Spetra</strong></p>
+<blockquote>
+<div>The total number of spectra within the cluster</div></blockquote>
+<p><strong># Spectra per File</strong></p>
+<blockquote>
+<div><p>The number of spectra per input file that are part of the cluster. This is one of the most
+powerful features of this result view as it immediately shows a rough estimate of a molecules
+abundance (based on spectral counts) accross the different MS runs.</p>
+<p>When clicking the <strong>+</strong> icon on the right, the complete filenames are shown.</p>
+</div></blockquote>
+<p><strong>Sequences</strong></p>
+<blockquote>
+<div><p>A condensed summary of the frequency of sequences observed in the cluster. In the shown
+example, every cluster only contains spectra that were all identified as the same peptide.</p>
+<p>If this field is empty (row 6 in the example) the cluster only consists of unidentified spectra.</p>
+</div></blockquote>
+<p>As with any Proteome Discoverer result table, this table can easily be exported to, for example R, for
+further analysis. Thereby, clustering results can be used to, for example, characterize samples
+based on the observed abundance of clusters alone independent of any identification data.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In the setup shown above, additionally inferred PSMs are automatically considered by <cite>apQuant</cite>
+when performing label-free quantitation. Therefore, no additional measures have to be taken to
+improve label-free quantitation results.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2019, Johannes Griss.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.7</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/tutorials/proteome_discoverer.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

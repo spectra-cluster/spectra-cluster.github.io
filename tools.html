@@ -1,0 +1,157 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Clustering tools / software &#8212; spectra-cluster toolsuite</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Proteome Discoverer Tutorial" href="tutorials/proteome_discoverer.html" />
+    <link rel="prev" title="Welcome" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="index.html">
+    <img class="logo" src="_static/logo.jpg" alt="Logo"/>
+    
+    <h1 class="logo logo-name">spectra-cluster toolsuite</h1>
+    
+  </a>
+</p>
+
+
+
+<p class="blurb">An MS/MS clustering framework</p>
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Welcome</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Clustering tools / software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#developing-own-algorithms">Developing own algorithms</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/proteome_discoverer.html">Proteome Discoverer Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/clustering_basics.html">How to cluster MS/MS data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/unidentified_analysis.html">Analysing proteomics samples using spectrum clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysis_results.html">Analysing clustering results</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome</a></li>
+      <li>Next: <a href="tutorials/proteome_discoverer.html" title="next chapter">Proteome Discoverer Tutorial</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="clustering-tools-software">
+<h1>Clustering tools / software<a class="headerlink" href="#clustering-tools-software" title="Permalink to this headline">¶</a></h1>
+<p>The spectra-cluster toolsuite currently contains four tools to cluster
+MS/MS based proteomics data:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a href="#id2"><span class="problematic" id="id3">`Proteome Discoverer node`_</span></a>: Proteome Discoverer node of the spectra-cluster algorithm</li>
+<li><a class="reference external" href="https://github.com/spectra-cluster/spectra-cluster-cli">spectra-cluster-cli</a>: Command line version</li>
+<li><a class="reference external" href="https://github.com/spectra-cluster/spectra-cluster-gui">spectra-cluster-gui</a>: Graphical user interface</li>
+<li><a class="reference external" href="https://github.com/spectra-cluster/spectra-cluster-hadoop">spectra-cluster-hadoop</a>: Hadoop version</li>
+</ul>
+</div></blockquote>
+<p>All of these tools use the <a class="reference external" href="https://github.com/spectra-cluster/spectra-cluster">spectra-cluster Java API</a> to perform the actual
+clustering and should produce comparable results.</p>
+<p>Our own development focuses on the <a class="reference external" href="https://github.com/spectra-cluster/spectra-cluster-cli">spectra-cluster-cli</a> tool. Therefore, this tool is always at
+the latest development stage.</p>
+<div class="section" id="developing-own-algorithms">
+<h2>Developing own algorithms<a class="headerlink" href="#developing-own-algorithms" title="Permalink to this headline">¶</a></h2>
+<p>The spectra-cluster toolsuite provides several ready-to-use APIs that support the
+development of MS/MS clustering algorithms as well as own analaysis tools.</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://github.com/spectra-cluster/clustering-file-reader">clustering-file-reader</a>: Java API to read the .clustering format</li>
+<li><a class="reference external" href="https://github.com/spectra-cluster/spectra-cluster-py">spectra-cluster-py</a>: Tools to analyse .clustering files as well as
+a Python API to process .clustering files</li>
+</ul>
+</div></blockquote>
+<p>The <a class="reference external" href="https://github.com/spectra-cluster/spectra-cluster">spectra-cluster Java API</a> contains the core clustering functionality used by the
+implementations of the spectra-cluster algorithm. To test the effect of a, for example,
+different spectrum similarity method it is only necessary to implement a single interface.
+This new code will then be fully compatible with all existing tools (for example the
+<a class="reference external" href="https://github.com/spectra-cluster/spectra-cluster-cli">spectra-cluster-cli</a> command-line interface) which allows the user to immediately test the
+new implementation.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2019, Johannes Griss.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.7</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/tools.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
