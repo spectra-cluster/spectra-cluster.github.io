@@ -216,7 +216,7 @@ The main information is:
 
   The average precursor *m/z* of the cluster's spectra
 
-**# Spetra**
+**# Spectra**
 
   The total number of spectra within the cluster
 
