@@ -12,22 +12,23 @@ The spectra-cluster `Proteome Discoverer Node`_ integrates our spectra-cluster a
 Free version of Proteome Discoverer
 -----------------------------------
 
-Thermo provides a free version of Proteome Discoverer through its demo versions. The demo versions remain fully functional indefinitely. Only Thermo's commercial nodes are limited to 30 days. After this time, all freely available nodes remain fully functional.
+Thermo provides a free version of Proteome Discoverer through its demo versions. The demo versions remain fully functional indefinitely. 
+Only Thermo's commercial nodes are limited to 30 days. After this time, all freely available nodes remain fully functional.
 
-You can download the demo version of Proteome Discoverer 2.1 from https://thermo.flexnetoperations.com.
+You can download the demo version of Proteome Discoverer from https://thermo.flexnetoperations.com.
 
 .. note::
 
   The spectra-cluster node currently fully supports Proteome Discoverer version 2.0 and 2.1.
-  The node is also functional under version 2.3 but the clustering result table still lacks some
+  The node is also functional under version 2.3 and 2.4 but the clustering result table still lacks some
   columns.
 
 After registering and signing in:
 
   * Select `Product List` (on the left)
-  * Select `Demo` from the subsequent list (bottom middle)
-  * Find `Proteome Discoverer 2.1 SP1` in this list
-  * For most cases, the `Proteome Discoverer 2.1 SP1 - Installer Only` is the right file to download and install.
+  * Select `Application - Proteome Discoverer` from the subsequent list (bottom middle)
+  * Find `Proteome Discoverer 2.1 SP1` (or whichever version you like to use) in this list
+  * For most cases, the `Proteome Discoverer 2.1 SP1 - Installer Only` (or the version for your respective architecture) is the right file to download and install.
   * The licence key for the demo version is `J3H0-D5BN-P8TB-4RJX` (taken from https://portal.thermo-brims.com/index.php/component/thermosoftwares/thermosoftware/127).
 
 Installing free nodes
